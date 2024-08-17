@@ -208,6 +208,14 @@ require('lazy').setup({
             require('telescope.themes').get_dropdown(),
           },
         },
+        defaults = {
+          file_ignore_patterns = {
+            'node%_modules/.*',
+            '**/vendor/*',
+            'vendor/*',
+            'var/cache/*',
+          },
+        },
       }
 
       -- Enable Telescope extensions if they are installed
