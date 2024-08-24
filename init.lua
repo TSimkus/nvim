@@ -74,13 +74,6 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('n', '<leader>zig', '<cmd>LspRestart<cr>')
 
-vim.keymap.set('n', '<leader>vwm', function()
-  require('vim-with-me').StartVimWithMe()
-end)
-vim.keymap.set('n', '<leader>svwm', function()
-  require('vim-with-me').StopVimWithMe()
-end)
-
 -- greatest remap ever
 vim.keymap.set('x', '<leader>p', [["_dP]])
 
@@ -619,11 +612,6 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
-
-  require 'taysim.plugins.lint',
-  require 'taysim.plugins.autopairs',
-  require 'taysim.plugins.neo-tree',
-  require 'taysim.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   { import = 'taysim.plugins' },
 }, {
