@@ -666,4 +666,3 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- Do not place overritten text to buffer when pasting
 vim.keymap.set('x', '<leader>p', [["_dP]])
-vim.api.nvim_set_keymap('n', '<leader>pd', '<cmd>Telescope neovim-project discover<CR>', { desc = '[P]roject [D]iscover' })
