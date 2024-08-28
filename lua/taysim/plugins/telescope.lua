@@ -1,3 +1,18 @@
+local os_name = vim.loop.os_uname().sysname
+local os_hostname = vim.loop.os_gethostname()
+
+local file_ignore_patterns = {
+  'node%_modules/.*',
+  'vendor/*',
+}
+
+if os_name == 'Windows_NT' or os_hostname == 'LAPTOP-O0LL0JEB' then -- Disable for work
+  table.insert(file_ignore_patterns, '**/vendor/*')
+  table.insert(file_ignore_patterns, 'var/cache/*')
+  table.insert(file_ignore_patterns, 'public_html/templates/*')
+else -- Disable for personal
+end
+
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -30,12 +45,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
       },
       defaults = {
-        file_ignore_patterns = {
-          'node%_modules/.*',
-          '**/vendor/*',
-          'vendor/*',
-          'var/cache/*',
-        },
+        file_ignore_patterns = file_ignore_patterns,
       },
     }
 
