@@ -9,7 +9,7 @@ local file_ignore_patterns = {
 if os_name == 'Windows_NT' or os_hostname == 'LAPTOP-O0LL0JEB' then -- Disable for work
   table.insert(file_ignore_patterns, '**/vendor/*')
   table.insert(file_ignore_patterns, 'var/cache/*')
-  table.insert(file_ignore_patterns, 'public_html/templates/*')
+  table.insert(file_ignore_patterns, 'public_html/templates/assets/*')
 else -- Disable for personal
 end
 
