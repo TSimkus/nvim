@@ -55,21 +55,21 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+    vim.keymap.set('n', '<leader>ph', builtin.help_tags, { desc = '[P]eview [H]elp list' })
+    vim.keymap.set('n', '<leader>pk', builtin.keymaps, { desc = '[P]eview [K]eymaps list' })
+    vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = '[P]eview [F]iles list' })
     vim.keymap.set(
       'n',
-      '<leader>sF',
+      '<leader>pF',
       '<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>',
-      { desc = '[S]earch [F]iles (with hidden)' }
+      { desc = '[P]eview [F]iles list (with hidden)' }
     )
-    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+    vim.keymap.set('n', '<leader>ps', builtin.builtin, { desc = '[P]eview [S]elect Telescope list' })
+    vim.keymap.set('n', '<leader>pw', builtin.grep_string, { desc = '[P]eview current [W]ord list' })
+    vim.keymap.set('n', '<leader>pg', builtin.live_grep, { desc = '[P]eview by [G]rep list' })
+    vim.keymap.set('n', '<leader>pd', builtin.diagnostics, { desc = '[P]eview [D]iagnostics list' })
+    vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = '[P]eview [R]esume list' })
+    vim.keymap.set('n', '<leader>p.', builtin.oldfiles, { desc = '[P]eview Recent Files list ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     -- Slightly advanced example of overriding default behavior and theme
