@@ -61,12 +61,18 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set(
       'n',
       '<leader>pF',
-      '<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>',
+      '<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=><CR>',
       { desc = '[P]eview [F]iles list (with hidden)' }
     )
     vim.keymap.set('n', '<leader>ps', builtin.builtin, { desc = '[P]eview [S]elect Telescope list' })
     vim.keymap.set('n', '<leader>pw', builtin.grep_string, { desc = '[P]eview current [W]ord list' })
     vim.keymap.set('n', '<leader>pg', builtin.live_grep, { desc = '[P]eview by [G]rep list' })
+    vim.keymap.set(
+      'n',
+      '<leader>pG',
+      '<cmd>:Telescope grep_string find_command=rg,--ignore,--hidden,--files prompt_prefix=><CR>',
+      { desc = '[P]eview [F]iles list (with hidden)' }
+    )
     vim.keymap.set('n', '<leader>pd', builtin.diagnostics, { desc = '[P]eview [D]iagnostics list' })
     vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = '[P]eview [R]esume list' })
     vim.keymap.set('n', '<leader>p.', builtin.oldfiles, { desc = '[P]eview Recent Files list ("." for repeat)' })
