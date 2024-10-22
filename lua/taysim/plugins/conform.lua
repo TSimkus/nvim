@@ -1,4 +1,4 @@
--- Separates WORK and PERSONAL diasbled file types for autoformating
+-- Separates WORK and PERSONAL disabled file types for autoformating
 function Set_disable_filetypes()
   local os_name = vim.loop.os_uname().sysname
   local os_hostname = vim.loop.os_gethostname()

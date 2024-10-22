@@ -1,3 +1,23 @@
+-- Separates WORK and PERSONAL disabled file types for autoformating
+function setPatternBasedOnEnvironment()
+  local os_name = vim.loop.os_uname().sysname
+  local os_hostname = vim.loop.os_gethostname()
+
+  local pattern = {}
+  if os_name == 'Windows_NT' or os_hostname == 'LAPTOP-O0LL0JEB' then -- Disable for work
+    pattern = {
+      ['.*%.blade%.php'] = 'blade',
+      ['.*%.tpl'] = 'twig',
+    }
+  else -- Disable for personal
+    pattern = {
+      ['.*%.blade%.php'] = 'blade',
+    }
+  end
+
+  return pattern
+end
+
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
@@ -30,9 +50,7 @@ return { -- Highlight, edit, and navigate code
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 
     vim.filetype.add {
-      pattern = {
-        ['.*%.blade%.php'] = 'blade',
-      },
+      pattern = setPatternBasedOnEnvironment(),
     }
 
     require('nvim-treesitter.configs').setup(opts)
@@ -45,6 +63,15 @@ return { -- Highlight, edit, and navigate code
         branch = 'main',
       },
       filetype = 'blade',
+    }
+
+    parser_config.twig = {
+      install_info = {
+        url = 'https://github.com/gbprod/tree-sitter-twig',
+        files = { 'src/parser.c' },
+        branch = 'main',
+      },
+      filetype = 'twig',
     }
   end,
 }
