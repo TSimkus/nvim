@@ -46,6 +46,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       },
       defaults = {
         file_ignore_patterns = file_ignore_patterns,
+        layout_strategy = 'vertical',
       },
     }
 
