@@ -5,7 +5,7 @@ function Set_disable_filetypes()
 
   local disable_filetypes = {}
   if os_name == 'Windows_NT' or os_hostname == 'LAPTOP-O0LL0JEB' then -- Disable for work
-    disable_filetypes = { c = true, cpp = true, php = true, js = true }
+    disable_filetypes = { c = true, cpp = true, php = true, js = true, tpl = true }
   else -- Disable for personal
     disable_filetypes = { c = true, cpp = true }
   end
