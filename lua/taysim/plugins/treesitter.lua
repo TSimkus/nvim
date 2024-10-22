@@ -2,7 +2,7 @@ return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   opts = {
-    ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'php', 'phpdoc', 'javascript', 'jsdoc' },
+    ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'php', 'phpdoc', 'javascript', 'jsdoc', 'blade', 'php_only' },
     -- Autoinstall languages that are not installed
     auto_install = true,
     highlight = {
@@ -28,5 +28,23 @@ return { -- Highlight, edit, and navigate code
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+
+    vim.filetype.add {
+      pattern = {
+        ['.*%.blade%.php'] = 'blade',
+      },
+    }
+
+    require('nvim-treesitter.configs').setup(opts)
+
+    local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+    parser_config.blade = {
+      install_info = {
+        url = 'https://github.com/EmranMR/tree-sitter-blade',
+        files = { 'src/parser.c' },
+        branch = 'main',
+      },
+      filetype = 'blade',
+    }
   end,
 }
