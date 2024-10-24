@@ -21,7 +21,6 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button('e', '  > New file', ':ene <BAR> startinsert <CR>'),
         dashboard.button('SPACE pp', '  > Project picker', ':Telescope project<CR>'),
-        dashboard.button('SPACE pf', '  > Find file', ':cd /var/www/ | Telescope find_files<CR>'),
         dashboard.button('SPACE pr', '  > Recent', ':Telescope oldfiles<CR>'),
         dashboard.button('q', '  > Quit', ':qa<CR>'),
       }
@@ -40,7 +39,6 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button('e', '  > New file', ':ene <BAR> startinsert <CR>'),
         dashboard.button('SPACE pp', '  > Project picker', ':Telescope project<CR>'),
-        dashboard.button('SPACE pf', '  > Find file', ':cd $HOME/projects/f1/ | Telescope find_files<CR>'),
         dashboard.button('SPACE pr', '  > Recent', ':Telescope oldfiles<CR>'),
         dashboard.button('q', '  > Quit', ':qa<CR>'),
       }
