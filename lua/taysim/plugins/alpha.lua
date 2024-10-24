@@ -4,7 +4,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
 
   config = function()
-    local dashboard = require 'alpha.themes.startify'
+    local dashboard = require 'alpha.themes.dashboard'
     local os_name = vim.loop.os_uname().sysname
     local os_hostname = vim.loop.os_gethostname()
 
@@ -29,6 +29,15 @@ return {
         [[                |___/                       ]],
       }
     end
+
+    dashboard.section.buttons.val = {
+      dashboard.button('e', '  > New file', ':ene <BAR> startinsert <CR>'),
+      dashboard.button('SPACE pp', '  > Project picker', ':Telescope project<CR>'),
+      dashboard.button('SPACE pf', '  > Find file', ':cd $HOME/projects/f1/ | Telescope find_files<CR>'),
+      dashboard.button('SPACE pr', '  > Recent', ':Telescope oldfiles<CR>'),
+      dashboard.button('q', '  > Quit', ':qa<CR>'),
+    }
+
     require('alpha').setup(dashboard.config)
   end,
 }

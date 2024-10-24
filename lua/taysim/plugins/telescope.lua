@@ -21,6 +21,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
       'nvim-telescope/telescope-fzf-native.nvim',
+      'nvim-telescope/telescope-project.nvim',
 
       -- `build` is used to run some command when the plugin is installed/updated.
       -- This is only run then, not every time Neovim starts up.
@@ -53,6 +54,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+
+    pcall(require('telescope').load_extension, 'project')
+    vim.keymap.set('n', '<leader>pp', '<cmd>:Telescope project<CR>', { desc = '[P]roject [P]icker' })
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
