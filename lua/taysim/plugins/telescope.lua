@@ -60,27 +60,20 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>ph', builtin.help_tags, { desc = '[P]eview [H]elp list' })
-    vim.keymap.set('n', '<leader>pk', builtin.keymaps, { desc = '[P]eview [K]eymaps list' })
-    vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = '[P]eview [F]iles list' })
+    vim.keymap.set('n', '<leader>ph', builtin.help_tags, { desc = '[P]review [H]elp list' })
+    vim.keymap.set('n', '<leader>pk', builtin.keymaps, { desc = '[P]review [K]eymaps list' })
+    vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = '[P]review [F]iles list' })
     vim.keymap.set(
       'n',
       '<leader>pF',
       '<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=><CR>',
-      { desc = '[P]eview [F]iles list (with hidden)' }
+      { desc = '[P]review [F]iles list (with hidden)' }
     )
-    vim.keymap.set('n', '<leader>ps', builtin.builtin, { desc = '[P]eview [S]elect Telescope list' })
-    vim.keymap.set('n', '<leader>pw', builtin.grep_string, { desc = '[P]eview current [W]ord list' })
-    vim.keymap.set('n', '<leader>pg', builtin.live_grep, { desc = '[P]eview by [G]rep list' })
-    vim.keymap.set(
-      'n',
-      '<leader>pG',
-      '<cmd>:Telescope grep_string find_command=rg,--ignore,--hidden,--files prompt_prefix=><CR>',
-      { desc = '[P]eview [F]iles list (with hidden)' }
-    )
-    vim.keymap.set('n', '<leader>pd', builtin.diagnostics, { desc = '[P]eview [D]iagnostics list' })
-    vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = '[P]eview [R]esume list' })
-    vim.keymap.set('n', '<leader>p.', builtin.oldfiles, { desc = '[P]eview Recent Files list ("." for repeat)' })
+    vim.keymap.set('n', '<leader>ps', builtin.builtin, { desc = '[P]review [S]elect Telescope list' })
+    vim.keymap.set('n', '<leader>pw', builtin.grep_string, { desc = '[P]review current [W]ord list' })
+    vim.keymap.set('n', '<leader>pd', builtin.diagnostics, { desc = '[P]review [D]iagnostics list' })
+    vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = '[P]review [R]esume list' })
+    vim.keymap.set('n', '<leader>p.', builtin.oldfiles, { desc = '[P]review Recent Files list ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     -- Slightly advanced example of overriding default behavior and theme
@@ -88,7 +81,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
-        previewer = false,
+        prreviewer = false,
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
 
@@ -105,5 +98,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    require('taysim.telescope.multigrep').setup()
   end,
 }
