@@ -188,6 +188,12 @@ require('lazy').setup({
             },
           },
         },
+        quick_lint_js = {
+          capabilities = {
+            documentFormattingProvider = false,
+            documentRangeFormattingProvider = false,
+          },
+        },
       }
 
       require('mason').setup()
@@ -232,4 +238,3 @@ require('lazy').setup({
     },
   },
 })
-
