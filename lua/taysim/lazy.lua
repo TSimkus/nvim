@@ -154,7 +154,7 @@ require('lazy').setup({
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, '[T]oggle Inlay [H]ints')
           end
-          if client and client.name == 'tsserver' then
+          if client and (client.name == 'tsserver' or client.name == 'cssls') then
             client.server_capabilities.documentFormattingProvider = false
           end
         end,
@@ -192,6 +192,11 @@ require('lazy').setup({
           },
         },
         tsserver = {
+          capabilities = {
+            documentFormattingProvider = false,
+          },
+        },
+        cssls = {
           capabilities = {
             documentFormattingProvider = false,
           },
