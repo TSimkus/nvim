@@ -50,3 +50,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Replace horizontal split to vertical split
 vim.keymap.set('n', '<C-w>s', '<cmd>vsplit<CR>')
+
+-- Removes ^M from the end of the line that is created by windows when pasting...
+vim.keymap.set('n', ',m', '<cmd>silent :%s/\r//g<CR>')
