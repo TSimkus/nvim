@@ -68,7 +68,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>fl', builtin.find_files, { desc = 'Show [F]ile [L]ist' })
     vim.keymap.set(
       'n',
-      '<leader>fF',
+      '<leader>fL',
       '<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=><CR>',
       { desc = '[F]ind [F]iles list (with hidden)' }
     )
