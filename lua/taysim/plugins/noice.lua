@@ -32,5 +32,11 @@ return {
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
     }
+
+    require('notify').setup {
+      merge_duplicates = true,
+      background_colour = '#000000',
+      top_down = false,
+    }
   end,
 }
