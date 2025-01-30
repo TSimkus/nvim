@@ -11,7 +11,7 @@ return {
       function()
         require('harpoon'):list():add()
       end,
-      desc = 'harpoon file',
+      desc = '[Add] file to Harpoon',
     },
     {
       '<C-e>',
@@ -19,7 +19,7 @@ return {
         local harpoon = require 'harpoon'
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
-      desc = 'harpoon quick menu',
+      desc = '[E]xplore Harpoon Files',
     },
 
     {
@@ -27,28 +27,28 @@ return {
       function()
         require('harpoon'):list():select(1)
       end,
-      desc = 'harpoon to file 1',
+      desc = 'Harpoon to file 1',
     },
     {
       '<C-J>',
       function()
         require('harpoon'):list():select(2)
       end,
-      desc = 'harpoon to file 2',
+      desc = 'Harpoon to file 2',
     },
     {
       '<C-K>',
       function()
         require('harpoon'):list():select(3)
       end,
-      desc = 'harpoon to file 3',
+      desc = 'Harpoon to file 3',
     },
     {
       '<C-L>',
       function()
         require('harpoon'):list():select(4)
       end,
-      desc = 'harpoon to file 4',
+      desc = 'Harupoon to file 4',
     },
   },
 }

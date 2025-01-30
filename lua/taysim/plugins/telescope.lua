@@ -1,16 +1,19 @@
-local os_name = vim.loop.os_uname().sysname
-local os_hostname = vim.loop.os_gethostname()
+local function get_file_ignore_patterns()
+  local patterns_loc = vim.fn.stdpath 'data' .. '/custom_taysim/file-ignore-patterns.txt'
+  local patterns = {}
 
-local file_ignore_patterns = {
-  'node%_modules/.*',
-  'vendor/*',
-}
+  local file = io.open(patterns_loc, 'r')
+  if not file then
+    return patterns
+  end
 
-if os_name == 'Windows_NT' or os_hostname == 'LAPTOP-O0LL0JEB' then -- Disable for work
-  table.insert(file_ignore_patterns, '**/vendor/*')
-  table.insert(file_ignore_patterns, 'var/cache/*')
-  table.insert(file_ignore_patterns, 'public_html/templates/assets/*')
-else -- Disable for personal
+  for line in file:lines() do
+    table.insert(patterns, line)
+  end
+
+  file:close()
+
+  return patterns
 end
 
 return { -- Fuzzy Finder (files, lsp, etc)
@@ -46,7 +49,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
       },
       defaults = {
-        file_ignore_patterns = file_ignore_patterns,
+        file_ignore_patterns = get_file_ignore_patterns(),
         layout_strategy = 'vertical',
       },
     }
@@ -60,20 +63,20 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>ph', builtin.help_tags, { desc = '[P]review [H]elp list' })
-    vim.keymap.set('n', '<leader>pk', builtin.keymaps, { desc = '[P]review [K]eymaps list' })
-    vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = '[P]review [F]iles list' })
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp list' })
+    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps list' })
+    vim.keymap.set('n', '<leader>fl', builtin.find_files, { desc = 'Show [F]ile [L]ist' })
     vim.keymap.set(
       'n',
       '<leader>pF',
       '<cmd>:Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=><CR>',
       { desc = '[P]review [F]iles list (with hidden)' }
     )
-    vim.keymap.set('n', '<leader>ps', builtin.builtin, { desc = '[P]review [S]elect Telescope list' })
-    vim.keymap.set('n', '<leader>pw', builtin.grep_string, { desc = '[P]review current [W]ord list' })
-    vim.keymap.set('n', '<leader>pd', builtin.diagnostics, { desc = '[P]review [D]iagnostics list' })
-    vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = '[P]review [R]esume list' })
-    vim.keymap.set('n', '<leader>p.', builtin.oldfiles, { desc = '[P]review Recent Files list ("." for repeat)' })
+    vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope list' })
+    vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord list' })
+    vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics list' })
+    vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume list' })
+    vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files list ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     -- Slightly advanced example of overriding default behavior and theme

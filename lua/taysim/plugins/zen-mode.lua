@@ -1,6 +1,9 @@
 return {
   {
     'folke/zen-mode.nvim',
+    init = function()
+      vim.keymap.set('n', '<leader>z', vim.cmd.ZenMode, { desc = '[Z]en mode' })
+    end,
 
     opts = {
       window = {

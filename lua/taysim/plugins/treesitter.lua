@@ -1,21 +1,24 @@
--- Separates WORK and PERSONAL disabled file types for autoformating
-function setPatternBasedOnEnvironment()
-  local os_name = vim.loop.os_uname().sysname
-  local os_hostname = vim.loop.os_gethostname()
+local function get_file_type_patterns()
+  local patterns_loc = vim.fn.stdpath 'data' .. '/custom_taysim/treesitter-patterns.txt'
+  local patterns = {}
 
-  local pattern = {}
-  if os_name == 'Windows_NT' or os_hostname == 'LAPTOP-O0LL0JEB' then -- Disable for work
-    pattern = {
-      ['.*%.blade%.php'] = 'blade',
-      ['.*%.tpl'] = 'twig',
-    }
-  else -- Disable for personal
-    pattern = {
-      ['.*%.blade%.php'] = 'blade',
-    }
+  local file = io.open(patterns_loc, 'r')
+  if not file then
+    return patterns
   end
 
-  return pattern
+  local content = file:read '*a'
+  file:close()
+
+  local patternTable, err = load('return {' .. content .. '}')
+  if not patternTable then
+    print('Error parsing the file' .. err)
+    return patterns
+  end
+
+  patterns = patternTable()
+
+  return patterns
 end
 
 return { -- Highlight, edit, and navigate code
@@ -50,7 +53,7 @@ return { -- Highlight, edit, and navigate code
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 
     vim.filetype.add {
-      pattern = setPatternBasedOnEnvironment(),
+      pattern = get_file_type_patterns(),
     }
 
     require('nvim-treesitter.configs').setup(opts)

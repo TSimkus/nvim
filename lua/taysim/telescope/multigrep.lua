@@ -94,9 +94,9 @@ local live_multigrep_hidden = function(opts)
 end
 
 M.setup = function()
-  vim.keymap.set('n', '<leader>pg', live_multigrep, { desc = '[P]review [G]rep list' })
+  vim.keymap.set('n', '<leader>fg', live_multigrep, { desc = '[F]ind [G]rep list' })
 
-  vim.keymap.set('n', '<leader>pG', live_multigrep_hidden, { desc = '[P]review [F]iles list (with hidden)' })
+  vim.keymap.set('n', '<leader>fG', live_multigrep_hidden, { desc = '[F]ind [G]rep list (with hidden)' })
 end
 
 return M

@@ -10,4 +10,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.notify = require 'notify'
+vim.cmd.hi = 'Comment gui=none'
