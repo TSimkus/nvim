@@ -5,7 +5,7 @@ return {
     config = function()
       require('onedarkpro').setup {
         options = {
-          transparency = false,
+          transparency = true,
           lualine_transparency = false,
         },
       }
@@ -94,7 +94,7 @@ return {
       }
     end,
     init = function()
-      vim.cmd.colorscheme 'rose-pine-moon'
+      vim.cmd.colorscheme 'onedark'
       vim.cmd.hi = 'Comment gui=none'
     end,
   },
