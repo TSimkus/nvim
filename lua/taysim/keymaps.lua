@@ -29,6 +29,7 @@ vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 
 -- Open lazygit in new tmux window
 vim.keymap.set('n', '<leader>lg', '<cmd>silent !tmux neww lazygit<CR>')
+vim.keymap.set('n', '<leader>pc', '<cmd>silent !tmux neww sudo update-alternatives --config php<CR>')
 
 vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
