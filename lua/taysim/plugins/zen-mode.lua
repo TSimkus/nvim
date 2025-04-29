@@ -4,6 +4,7 @@ return {
     init = function()
       vim.keymap.set('n', '<leader>z', vim.cmd.ZenMode, { desc = '[Z]en mode' })
     end,
+    enabled = false,
 
     opts = {
       window = {
