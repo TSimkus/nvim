@@ -17,10 +17,11 @@ return {
       enabled = true,
       sources = {
         explorer = {
-          auto_close = true,
+          auto_close = false,
           layout = {
             preset = 'sidebar',
             preview = 'main',
+            hidden = { 'preview' },
           },
         },
       },
@@ -32,6 +33,12 @@ return {
     words = { enabled = true },
     terminal = { enabled = true },
     rename = { enabled = true },
+    zen = {
+      enabled = true,
+      toggles = {
+        dim = false,
+      },
+    },
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
