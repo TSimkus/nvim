@@ -61,3 +61,6 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = 'split'
 
 vim.opt.colorcolumn = '80'
+
+-- Enable errors and warning virtual text
+vim.diagnostic.config { virtual_text = true }
