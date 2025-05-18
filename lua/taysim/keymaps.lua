@@ -58,3 +58,6 @@ vim.keymap.set('n', '<leader>ct', '<cmd>tabnew<CR>')
 
 -- Cleans up ^M when pasting from windows...
 vim.api.nvim_set_keymap('n', ',m', [[:%s/\r//g<CR>]], { noremap = true, silent = true })
+
+-- Symbol rename
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true, desc = 'Rename symbol' })
