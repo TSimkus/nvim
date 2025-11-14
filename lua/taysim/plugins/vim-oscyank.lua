@@ -1,1 +1,0 @@
-return { 'ojroques/vim-oscyank' }
