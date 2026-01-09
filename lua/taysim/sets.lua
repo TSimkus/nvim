@@ -6,10 +6,10 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 
 vim.opt.smartindent = true
 
@@ -28,7 +28,7 @@ end
 
 vim.opt.undofile = true
 
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -62,8 +62,8 @@ vim.opt.inccommand = 'split'
 
 -- Enable errors and warning virtual text
 vim.diagnostic.config {
-  -- virtual_lines = true,
-  virtual_text = true,
+  virtual_lines = true,
+  -- virtual_text = true,
   underline = true,
   update_in_insert = false,
   severity_sort = true,
@@ -87,3 +87,4 @@ vim.diagnostic.config {
 
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.winborder = 'rounded'
+vim.opt.colorcolumn = '80'
