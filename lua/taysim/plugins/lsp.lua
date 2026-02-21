@@ -131,15 +131,6 @@ return {
             },
           },
         },
-        intelephense = {
-          settings = {
-            intelephense = {
-              format = {
-                braces = 'k&r',
-              },
-            },
-          },
-        },
         ts_ls = {
           capabilities = {
             documentFormattingProvider = false,
