@@ -61,8 +61,8 @@ vim.opt.inccommand = 'split'
 
 -- Enable errors and warning virtual text
 vim.diagnostic.config {
-  virtual_lines = true,
-  -- virtual_text = true,
+  -- virtual_lines = true,
+  virtual_text = true,
   underline = true,
   update_in_insert = false,
   severity_sort = true,
