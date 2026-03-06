@@ -11,3 +11,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.cmd.hi = 'Comment gui=none'
+
+vim.api.nvim_set_hl(0, 'TrailingWhitespace', { bg = 'darkred' })
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*',
+  command = [[
+        syntax clear TrailingWhitespace |
+	    syntax match TrailingWhitespace "\_s\+$"
+	]],
+})
