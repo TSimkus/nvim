@@ -45,7 +45,6 @@ return { -- Autocompletion
       },
       completion = {
         completeopt = 'menu,menuone,noinsert',
-        autocomplete = false,
       },
 
       -- For an understanding of why these mappings were
