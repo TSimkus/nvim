@@ -229,7 +229,10 @@ return {
     {
       '<leader>ff',
       function()
-        Snacks.picker.files()
+        Snacks.picker.files {
+          hidden = false,
+          ignored = false,
+        }
       end,
       desc = 'Find Files',
     },
@@ -322,7 +325,9 @@ return {
     {
       '<leader>sg',
       function()
-        Snacks.picker.grep()
+        Snacks.picker.grep {
+          regex = false,
+        }
       end,
       desc = 'Grep',
     },
